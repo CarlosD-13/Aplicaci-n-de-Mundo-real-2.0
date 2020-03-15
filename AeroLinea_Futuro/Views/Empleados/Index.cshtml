@@ -1,0 +1,47 @@
+﻿@model IEnumerable<AeroLinea_Futuro.Models.Empleado>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Listado de Empleados</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cargo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sueldo)
+            </th>
+            <th>
+                <a class="btn btn-success" asp-action="Create">Crear</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sueldo)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.EmpleadoID">Editar</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.EmpleadoID">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
